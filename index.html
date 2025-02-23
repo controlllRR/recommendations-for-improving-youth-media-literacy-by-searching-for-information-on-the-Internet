@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Правила информационной гигиены</title>
+    <title>Рекомендации по повышению медиаграмотности у молодежи</title>
     <style>
         :root {
             --gradient-1: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
             --gradient-2: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
 
         @keyframes gradient {
@@ -36,10 +38,10 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            max-width: 900px;
+            line-height: 1.5;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
             background-color: #f8fafc;
             color: #1e293b;
             background: linear-gradient(
@@ -87,10 +89,10 @@
         /* Добавляем блики */
         .shine {
             position: fixed;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.6);
             filter: blur(20px);
             z-index: -1;
         }
@@ -116,13 +118,15 @@
         h1 {
             color: #1e293b;
             text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-size: 2rem;
             font-weight: 700;
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             position: relative;
+            line-height: 1.2;
+            padding: 0 20px;
         }
 
         h1::after {
@@ -137,53 +141,37 @@
             border-radius: 2px;
         }
 
+        /* Удаляем grid и возвращаем прежний стиль карточек */
+        .rules-grid {
+            display: block;
+        }
+
         .rule-container {
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
-                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(12px);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .rule-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-2);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .rule-container:hover::before {
-            opacity: 1;
         }
 
         .rule-container:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             color: #1e293b;
             margin-top: 0;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 10px;
-            padding-bottom: 15px;
+            padding-bottom: 10px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         h2::before {
@@ -196,54 +184,45 @@
         }
 
         ul {
-            padding-left: 20px;
-            list-style: none;
+            padding-left: 0;
+            margin: 0;
         }
 
         li {
-            transition: transform 0.2s ease, color 0.2s ease;
-            padding: 8px 25px;
+            padding: 8px 15px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
             background: rgba(255, 255, 255, 0.5);
-            border-radius: 8px;
-            margin-bottom: 15px;
-            color: #475569;
-            position: relative;
+            border-radius: 6px;
+            transition: var(--transition);
         }
 
         li:hover {
+            background: white;
             transform: translateX(5px);
-            color: #2563eb;
-            background: rgba(255, 255, 255, 0.9);
         }
 
         li::before {
-            content: '→';
-            color: #6366f1;
-            font-weight: bold;
-            transition: transform 0.2s ease;
+            display: none;
         }
 
-        li:hover::before {
-            transform: translateX(5px);
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             body {
-                padding: 20px 15px;
-            }
-            
-            .rule-container {
-                padding: 20px;
-                margin-bottom: 20px;
+                padding: 15px;
             }
 
-            h1 {
-                font-size: 2rem;
-                margin-bottom: 30px;
+            .rule-container {
+                padding: 15px;
+                margin-bottom: 15px;
             }
 
             h2 {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
+            }
+
+            li {
+                padding: 6px 12px;
+                font-size: 0.9rem;
             }
         }
 
@@ -314,35 +293,6 @@
             }
         }
 
-        /* Улучшаем адаптивность */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 15px;
-            }
-
-            .rule-container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.2rem;
-            }
-
-            li {
-                padding: 6px 20px;
-            }
-        }
-
-        /* Добавляем эффект фокуса для доступности */
-        .rule-container:focus-within {
-            outline: 2px solid #6366f1;
-            outline-offset: 2px;
-        }
-
         /* Добавляем поддержку тёмной темы */
         @media (prefers-color-scheme: dark) {
             body {
@@ -351,8 +301,7 @@
             }
 
             .rule-container {
-                background: rgba(30, 41, 59, 0.95);
-                border-color: rgba(255, 255, 255, 0.1);
+                background: rgba(30, 41, 59, 0.8);
             }
 
             h2 {
@@ -362,12 +311,10 @@
 
             li {
                 background: rgba(30, 41, 59, 0.5);
-                color: #cbd5e1;
             }
 
             li:hover {
                 background: rgba(30, 41, 59, 0.9);
-                color: #60a5fa;
             }
         }
 
@@ -387,12 +334,13 @@
         /* Стили для частиц */
         .particle {
             position: fixed;
-            width: 10px;
-            height: 10px;
+            width: 6px;
+            height: 6px;
             background: rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             pointer-events: none;
             z-index: -1;
+            opacity: 0.4;
         }
 
         .particle:nth-child(1) { 
@@ -479,7 +427,7 @@
     <div class="shine"></div>
     <div class="shine"></div>
     
-    <h1>Правила информационной гигиены</h1>
+    <h1>Рекомендации по повышению медиаграмотности у молодежи</h1>
 
     <div class="rule-container">
         <h2>1. Проверка достоверности источников</h2>
@@ -511,7 +459,7 @@
         <h2>4. Осознанный поиск в интернете</h2>
         <ul>
             <li>Использовать ключевые слова и фильтры поиска.</li>
-            <li>Искать информацию через разные поисковые системы (Google, DuckDuckGo, Яндекс).</li>
+            <li>Искать информацию через разные поисковые системы (Google, Яндекс).</li>
             <li>Избегать сайтов с подозрительными доменами (например, «.info», «.xyz»).</li>
         </ul>
     </div>
@@ -528,9 +476,8 @@
     <div class="rule-container">
         <h2>6. Разоблачение фейков и манипуляций</h2>
         <ul>
-            <li>Проверять фото и видео через обратный поиск в Google или TinEye.</li>
+            <li>Проверять фото и видео через обратный поиск в Google.</li>
             <li>Анализировать, нет ли в тексте ложных корреляций или манипулятивных приемов.</li>
-            <li>Изучать разоблачения фейков на ресурсах типа StopFake.</li>
         </ul>
     </div>
 
@@ -553,7 +500,7 @@
     </div>
 
     <div class="rule-container">
-        <h2>9. Развитие цифровой безопасности</h2>
+        <h2>9. Обеспечение цифровой безопасности</h2>
         <ul>
             <li>Проверять надежность сайтов перед вводом личных данных.</li>
             <li>Использовать двухфакторную аутентификацию и сложные пароли.</li>
@@ -562,7 +509,7 @@
     </div>
 
     <div class="rule-container">
-        <h2>10. Осознанное отношение к алгоритмам</h2>
+        <h2>10. Осознанное отношение к предлогаемым алгоритмам</h2>
         <ul>
             <li>Понимать, что соцсети и поисковики показывают информацию по интересам пользователя (информационный пузырь).</li>
             <li>Искать информацию за пределами своей ленты – подписываться на разные источники.</li>
