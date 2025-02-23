@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила информационной гигиены</title>
+    <style>
+        :root {
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --gradient-2: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translatey(0px);
+            }
+            50% {
+                transform: translatey(-20px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f8fafc;
+            color: #1e293b;
+            background: linear-gradient(
+                -45deg, 
+                rgba(99, 102, 241, 0.1),
+                rgba(59, 130, 246, 0.1),
+                rgba(45, 212, 191, 0.1),
+                rgba(168, 85, 247, 0.1)
+            );
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 20%);
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Добавляем плавающие элементы */
+        body::after {
+            content: '';
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 80% 10%, rgba(45, 212, 191, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 20% 90%, rgba(59, 130, 246, 0.05) 0%, transparent 20%);
+            z-index: -1;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        /* Добавляем блики */
+        .shine {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            filter: blur(20px);
+            z-index: -1;
+        }
+
+        .shine:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .shine:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation: float 12s ease-in-out infinite reverse;
+        }
+
+        .shine:nth-child(3) {
+            bottom: 10%;
+            left: 30%;
+            animation: float 9s ease-in-out infinite;
+        }
+
+        h1 {
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .rule-container {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .rule-container:hover::before {
+            opacity: 1;
+        }
+
+        .rule-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #1e293b;
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style: none;
+        }
+
+        li {
+            transition: transform 0.2s ease, color 0.2s ease;
+            padding: 8px 25px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            color: #475569;
+            position: relative;
+        }
+
+        li:hover {
+            transform: translateX(5px);
+            color: #2563eb;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        li::before {
+            content: '→';
+            color: #6366f1;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        li:hover::before {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            .rule-container {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Добавляем анимацию появления для контейнеров */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .rule-container {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        /* Задержка анимации для каждого последующего контейнера */
+        .rule-container:nth-child(1) { animation-delay: 0.1s; }
+        .rule-container:nth-child(2) { animation-delay: 0.2s; }
+        .rule-container:nth-child(3) { animation-delay: 0.3s; }
+        .rule-container:nth-child(4) { animation-delay: 0.4s; }
+        .rule-container:nth-child(5) { animation-delay: 0.5s; }
+        .rule-container:nth-child(6) { animation-delay: 0.6s; }
+        .rule-container:nth-child(7) { animation-delay: 0.7s; }
+        .rule-container:nth-child(8) { animation-delay: 0.8s; }
+        .rule-container:nth-child(9) { animation-delay: 0.9s; }
+        .rule-container:nth-child(10) { animation-delay: 1s; }
+
+        /* Добавляем скролл-бар */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+        }
+
+        /* Добавляем печатные стили */
+        @media print {
+            body {
+                background: none;
+                padding: 20px;
+            }
+
+            .rule-container {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            h1::after {
+                display: none;
+            }
+        }
+
+        /* Улучшаем адаптивность */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .rule-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            li {
+                padding: 6px 20px;
+            }
+        }
+
+        /* Добавляем эффект фокуса для доступности */
+        .rule-container:focus-within {
+            outline: 2px solid #6366f1;
+            outline-offset: 2px;
+        }
+
+        /* Добавляем поддержку тёмной темы */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+                color: #e2e8f0;
+            }
+
+            .rule-container {
+                background: rgba(30, 41, 59, 0.95);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+
+            h2 {
+                color: #f8fafc;
+                border-bottom-color: rgba(255, 255, 255, 0.1);
+            }
+
+            li {
+                background: rgba(30, 41, 59, 0.5);
+                color: #cbd5e1;
+            }
+
+            li:hover {
+                background: rgba(30, 41, 59, 0.9);
+                color: #60a5fa;
+            }
+        }
+
+        /* Добавляем анимацию для частиц */
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(360deg);
+            }
+        }
+
+        /* Стили для частиц */
+        .particle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle:nth-child(1) { 
+            top: 20%; 
+            left: 20%;
+            animation: particleFloat 15s infinite linear;
+        }
+        .particle:nth-child(2) { 
+            top: 60%; 
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            animation: particleFloat 20s infinite linear reverse;
+        }
+        .particle:nth-child(3) { 
+            top: 30%; 
+            left: 80%;
+            width: 8px;
+            height: 8px;
+            animation: particleFloat 18s infinite linear;
+        }
+        .particle:nth-child(4) { 
+            top: 70%; 
+            left: 10%;
+            width: 12px;
+            height: 12px;
+            animation: particleFloat 25s infinite linear reverse;
+        }
+        .particle:nth-child(5) { 
+            top: 40%; 
+            left: 60%;
+            width: 6px;
+            height: 6px;
+            animation: particleFloat 22s infinite linear;
+        }
+        .particle:nth-child(6) { 
+            top: 80%; 
+            left: 30%;
+            animation: particleFloat 17s infinite linear reverse;
+        }
+        .particle:nth-child(7) { 
+            top: 50%; 
+            left: 70%;
+            width: 14px;
+            height: 14px;
+            animation: particleFloat 19s infinite linear;
+        }
+        .particle:nth-child(8) { 
+            top: 25%; 
+            left: 40%;
+            width: 7px;
+            height: 7px;
+            animation: particleFloat 21s infinite linear reverse;
+        }
+
+        /* Добавляем размытие для частиц */
+        .particle {
+            filter: blur(1px);
+            opacity: 0.6;
+        }
+
+        /* Адаптируем частицы для темной темы */
+        @media (prefers-color-scheme: dark) {
+            .particle {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Добавляем частицы -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Добавляем элементы бликов -->
+    <div class="shine"></div>
+    <div class="shine"></div>
+    <div class="shine"></div>
+    
+    <h1>Правила информационной гигиены</h1>
+
+    <div class="rule-container">
+        <h2>1. Проверка достоверности источников</h2>
+        <ul>
+            <li>Использовать официальные сайты, научные публикации, проверенные СМИ.</li>
+            <li>Проверять авторство и репутацию ресурса.</li>
+            <li>Искать оригинальный источник информации, а не перепечатки.</li>
+        </ul>
+    </div>
+
+    <div class="rule-container">
+        <h2>2. Критическое мышление и анализ контента</h2>
+        <ul>
+            <li>Различать факты, мнения и манипуляции.</li>
+            <li>Оценивать нейтральность и объективность текста.</li>
+            <li>Проверять даты публикации – информация может устареть.</li>
+        </ul>
+    </div>
+
+    <div class="rule-container">
+        <h2>3. Кросс-проверка информации</h2>
+        <ul>
+            <li>Сравнивать данные из нескольких источников.</li>
+            <li>Проверять информацию с помощью фактчекинговых платформ (например, Snopes, «Проверено»).</li>
+        </ul>
+    </div>
+
+    <div class="rule-container">
+        <h2>4. Осознанный поиск в интернете</h2>
+        <ul>
+            <li>Использовать ключевые слова и фильтры поиска.</li>
+            <li>Искать информацию через разные поисковые системы (Google, DuckDuckGo, Яндекс).</li>
+            <li>Избегать сайтов с подозрительными доменами (например, «.info», «.xyz»).</li>
+        </ul>
+    </div>
+
+    <div class="rule-container">
+        <h2>5. Осознанное отношение к социальным сетям</h2>
+        <ul>
+            <li>Не доверять слепо заголовкам – читать статью полностью.</li>
+            <li>Проверять источник новости перед репостом.</li>
+            <li>Оценивать, нет ли в публикации ярких эмоций или кликбейта.</li>
+        </ul>
+    </div>
+
+    <div class="rule-container">
+        <h2>6. Разоблачение фейков и манипуляций</h2>
+        <ul>
+            <li>Проверять фото и видео через обратный поиск в Google или TinEye.</li>
+            <li>Анализировать, нет ли в тексте ложных корреляций или манипулятивных приемов.</li>
+            <li>Изучать разоблачения фейков на ресурсах типа StopFake.</li>
+        </ul>
+    </div>
+
+    <div class="rule-container">
+        <h2>7. Обучение и саморазвитие</h2>
+        <ul>
+            <li>Проходить онлайн-курсы по медиаграмотности (Coursera, Лекториум, Arzamas).</li>
+            <li>Подписаться на экспертов по цифровой безопасности и информационной гигиене.</li>
+            <li>Практиковать навыки анализа информации в реальной жизни.</li>
+        </ul>
+    </div>
+
+    <div class="rule-container">
+        <h2>8. Распознавание пропаганды и манипуляций</h2>
+        <ul>
+            <li>Определять, не пытается ли источник вызвать сильные эмоции вместо логики.</li>
+            <li>Искать альтернативные точки зрения на проблему.</li>
+            <li>Оценивать, есть ли у автора скрытые мотивы или заказчики.</li>
+        </ul>
+    </div>
+
+    <div class="rule-container">
+        <h2>9. Развитие цифровой безопасности</h2>
+        <ul>
+            <li>Проверять надежность сайтов перед вводом личных данных.</li>
+            <li>Использовать двухфакторную аутентификацию и сложные пароли.</li>
+            <li>Быть осторожным с фейковыми предложениями и онлайн-опросами.</li>
+        </ul>
+    </div>
+
+    <div class="rule-container">
+        <h2>10. Осознанное отношение к алгоритмам</h2>
+        <ul>
+            <li>Понимать, что соцсети и поисковики показывают информацию по интересам пользователя (информационный пузырь).</li>
+            <li>Искать информацию за пределами своей ленты – подписываться на разные источники.</li>
+            <li>Проверять, не основывается ли мнение только на том, что предложил алгоритм.</li>
+        </ul>
+    </div>
+</body>
+</html> 
